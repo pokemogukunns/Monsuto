@@ -254,11 +254,7 @@ function Mons(props) {
                 </table >
               </div >
             )
-          }) :
-            <div
-              className='bg-slate-600'
-            >
-            </div>
+          }) : null
       }
     </div>
   )
