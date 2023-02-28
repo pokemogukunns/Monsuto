@@ -7,35 +7,32 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   const [isLoading, setIsLoading] = useState(false);
+  const [page, setPage] = useState(1)
+  const [pageCount, setPageCount] = useState()
   const [selectOption, setSelectOption] = useState('');
   const [mons, setMons] = useState([]);
   const [search, setSearch] = useState('')
-  const [page, setPage] = useState(1)
-  const [pageCount, setPageCount] = useState(0)
 
   const handleClick = async () => {
     if (selectOption == "MON_ID") {
       if (search === "" || search === " " || search === "." || search === "$") {
-        setPageCount(0)
+        setPageCount(1)
         setMons({ error: "Please provide an ID to search for :(" })
       }
       else {
         setIsLoading(true)
         const { data } = await requestData(search.replaceAll("&", "and"))
-        setPageCount(1)
         setMons(data)
         setIsLoading(false)
       }
     }
     else {
       if (search === "" || search === " " || search === "." || search === "$") {
-        setPageCount(0)
         setMons({ error: "Please provide something to search for :(" })
       }
       else {
         setIsLoading(true)
-        const { data } = await requestQuery(selectOption, search.replaceAll("&", "and"), page)
-        const { totalPages } = data;
+        const { data, data: { totalPages } } = await requestQuery(selectOption, search.replaceAll("&", "and"), 1)
         setPageCount(totalPages)
         setMons(data)
         setPage(1)
@@ -116,26 +113,27 @@ function App() {
         </div>
         : <Mons data={mons} />}
 
-      {pageCount >= 2 ?
-        <div
-          className='sticky bottom-0 flex justify-center p-2 bg-slate-600'
-        >
-          <PaginationControl
-            page={page}
-            between={4}
-            total={pageCount}
-            limit={1}
-            changePage={(p) => {
-              setPage(p)
-              handlePrevNext(p)
-            }}
-            ellipsis={1}
-          />
-        </div> :
-        <div
-          className='bg-slate-600'
-        ></div>
-      }
+      <div
+        className='sticky bottom-0 flex justify-center p-2 bg-slate-800'
+      >
+        {pageCount >= 2 ?
+          <div
+            className='sticky bottom-0 flex justify-center p-2 bg-slate-600'
+          >
+            <PaginationControl
+              page={page}
+              between={4}
+              total={pageCount}
+              limit={1}
+              changePage={(p) => {
+                setPage(p)
+                handlePrevNext(p)
+              }}
+              ellipsis={1}
+            />
+          </div> : null
+        }
+      </div>
     </div>
   )
 }
