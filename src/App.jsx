@@ -113,10 +113,7 @@ function App() {
         </div>
         : <Mons data={mons} />}
 
-      <div
-        className='sticky bottom-0 flex justify-center p-2 bg-slate-800'
-      >
-        {pageCount >= 2 ?
+      {pageCount >= 2 ?
           <div
             className='sticky bottom-0 flex justify-center p-2 bg-slate-600'
           >
@@ -133,7 +130,6 @@ function App() {
             />
           </div> : null
         }
-      </div>
     </div>
   )
 }
