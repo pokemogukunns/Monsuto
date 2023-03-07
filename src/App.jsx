@@ -16,6 +16,7 @@ function App() {
   const handleClick = async () => {
     if (selectOption == "MON_ID") {
       if (search === "" || search === " " || search === "." || search === "$") {
+        setPage(1)
         setPageCount(1)
         setMons({ error: "Please provide an ID to search for :(" })
       }
