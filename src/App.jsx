@@ -22,10 +22,10 @@ function App() {
       }
       else {
         setIsLoading(true)
-        const { data } = await requestData(search.replaceAll("&", "and"))
-        setMons(data)
         setPage(1)
         setPageCount(1)
+        const { data } = await requestData(search.replaceAll("&", "and"))
+        setMons(data)
         setIsLoading(false)
       }
     }
@@ -35,6 +35,7 @@ function App() {
       }
       else {
         setIsLoading(true)
+        setPage(1)
         setPageCount(1)
         const { data, data: { totalPages } } = await requestQuery(selectOption, search.replaceAll("&", "and"), 1)
         setPageCount(totalPages)
