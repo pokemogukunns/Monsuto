@@ -24,6 +24,8 @@ function App() {
         setIsLoading(true)
         const { data } = await requestData(search.replaceAll("&", "and"))
         setMons(data)
+        setPage(1)
+        setPageCount(1)
         setIsLoading(false)
       }
     }
