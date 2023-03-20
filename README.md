@@ -5,7 +5,8 @@
 Monster Strike is a japanese mobile game.
 Database created for the only purpose of making **easier** finding monsters by its properties, like id, abilities, strike shots, etc.
 
-All content were scrapped and crawled from **[here](https://monster-strike-enjp.fandom.com/wiki/Monster_Strike_Wiki)**
+All content were scraped and crawled from **[here](https://monster-strike-enjp.fandom.com/wiki/Monster_Strike_Wiki)**
+The scraper and crawler used to get data for the database can be found **[here](https://github.com/RodrigoFreitas-L/ms_crawler_scraper)**
 
 <br>
 
