@@ -36,8 +36,10 @@ Install [Docker Desktop](https://www.docker.com/) or:
 Go to the cloned folder
 and run one of the following:
 <pre><code>docker compose up</code></pre>
-<pre><code>docker compose up --build</code></pre>
 <pre><code>docker compose up -d (to start detached from container)</code></pre>
+This one in specific build images before starting the containers:
+<pre><code>docker compose up --build</code></pre>
+
 
 Now, to access it, just type in your browser:
 <pre><code>localhost:3000</pre></code>
