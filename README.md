@@ -39,5 +39,8 @@ and run one of the following:
 <pre><code>docker compose up --build</code></pre>
 <pre><code>docker compose up -d (to start detached from container)</code></pre>
 
+Now, to access it, just type in your browser:
+<pre><code>localhost:3000</pre></code>
+
 To end the application:
 <pre><code>docker compose down</code></pre>
