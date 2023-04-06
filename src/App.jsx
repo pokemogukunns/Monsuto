@@ -62,10 +62,6 @@ function App() {
   return (
     <div className='bg-slate-800'>
       <div className='sticky flex top-0 p-2 place-content-center bg-slate-300'>
-        {/* <label
-          htmlFor="monster-search"
-          className='mb-2 text-sm font-medium text-gray-900 sr-only'
-        >Search by</label> */}
         <select
           className='flex-shrink-0 z-10 inline-flex items-center text-sm font-medium text-center text-gray-900 bg-yellow-500 border border-yellow-300 rounded-l-lg hover:bg-yellow-200 focus:ring-2 focus:outline-none focus:ring-yellow-100'
           id='monster-search'
